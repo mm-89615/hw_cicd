@@ -53,4 +53,6 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            ls -l
+            cd /root/src/hw_cicd
+            git pull
+            sudo systemctl restart gunicorn
