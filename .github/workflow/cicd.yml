@@ -1,0 +1,23 @@
+name: Django ci/cd
+
+on:
+  push:
+    branches: [ production ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check changes
+        uses: actions/checkout@v2
+
+      - name: python install
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+      - name: check files
+        run: ls -l
+
+      - name: install requirements
+        run: pip install -r requirements.txt
